@@ -15,7 +15,7 @@ App StoreURL:
 ## クレジット
 タイトル画面BGM：のんびり作業(BGMer 様)  
 ホーム画面BGM：おめざのじかん(BGMer 様)  
-ゲーム(ノーマルモード)BGM：  
+ゲーム(ノーマルモード)BGM：Trike Trip(BGMer 様)  
 ゲーム(チャレンジモード)BGM：タスクをこなせ(BGMer 様)  
 ピース一覧画面BGM：マッタリが好き(こんとどぅふぇ HiLi 様)  
 ピース画像：製作者  
