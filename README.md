@@ -13,7 +13,7 @@ GooglePlayURL:
 App StoreURL:
 
 ## クレジット
-タイトル画面BGM：のんびり作業(BGMer 様)  
+タイトル画面BGM：  
 ホーム画面BGM：おめざのじかん(BGMer 様)  
 ゲーム(ノーマルモード)BGM：Trike Trip(BGMer 様)  
 ゲーム(チャレンジモード)BGM：タスクをこなせ(BGMer 様)  
