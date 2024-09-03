@@ -9,15 +9,9 @@ public class SamegameDirector : MonoBehaviour
 {
     //変数の設定
     [SerializeField] List<GameObject> prefubCats; //ネコのプレハブ
-    [SerializeField] public float gameTimer; //タイマー
+    [SerializeField] public static float gameTimer=5f; //タイマー
     [SerializeField] int fielditemCountMax;//フィールドに表示されるアイテム(Cat)の総数
     [SerializeField] int deleteItemCount;//削除できるアイテム(Cat)の数
-
-    //UIに関する変数
-    [SerializeField] public TextMeshProUGUI scoreText;//スコア
-    [SerializeField] public TextMeshProUGUI timerText;//ゲーム時間
-    [SerializeField] public GameObject finishPanel;//ゲーム終了時に出すパネル
-    [SerializeField] public GameObject retryButton;//ゲーム終了時に出すパネル
 
     //bgm,seに関する変数
     [SerializeField] AudioClip BublesSE;//ネコを消した時の音
@@ -25,13 +19,12 @@ public class SamegameDirector : MonoBehaviour
 
     //ゲーム内で使用するものの変数
     List<GameObject> cats;//アイテム(Cat)のリスト
-    public int gameScore;//スコアの変数
+    public static int gameScore;//スコアの変数
     AudioSource audioSource;//サウンド再生用
 
     //ライン
     List<GameObject> lineCats;
     LineRenderer lineRenderer;
-
 
     // Start is called before the first frame update
     void Start()
@@ -39,9 +32,6 @@ public class SamegameDirector : MonoBehaviour
         /*全アイテム
          アイテムのプレハブが生成されるたびにリストに追加*/
         cats = new List<GameObject>();
-
-        //リザルト画面を最初は非表示に設定
-        finishPanel.SetActive(false);
 
         //アイテム生成関数呼び出し
         SpawnItem(fielditemCountMax);
@@ -58,14 +48,10 @@ public class SamegameDirector : MonoBehaviour
     {
         //タイマーを更新
         gameTimer -= Time.deltaTime;
-        timerText.text = "" + (int)gameTimer;
 
         //ゲーム終了
         if (0 > gameTimer)
         {
-            //リザルト画面を表示
-            finishPanel.SetActive(true);
-
             //Update関数に入らないようにする
             enabled = false;
 
@@ -196,8 +182,8 @@ public class SamegameDirector : MonoBehaviour
             SpawnItem(destroyItems.Count / 4);
             gameScore += destroyItems.Count * 10;
 
-            ////スコアの表示を更新
-            scoreText.text = "" + gameScore;
+            //////スコアの表示を更新
+            //scoreText.text = "" + gameScore;
         }
     }
 
@@ -302,11 +288,5 @@ public class SamegameDirector : MonoBehaviour
         }
 
         return ret;
-    }
-
-    //リトライボタンを押されたら
-    public void OnClicRetry()
-    {
-        SceneManager.LoadScene("Samegame");
     }
 }
