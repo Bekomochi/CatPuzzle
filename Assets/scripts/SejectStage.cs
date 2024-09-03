@@ -3,14 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
+public class SejectStage : MonoBehaviour
 {
-    static int currentStage = 1;
-
-    public static void SetCurrentStage(int stage)
-    {
-        currentStage = stage;
-    }
+    [SerializeField] int StageNumber;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +19,10 @@ public class SceneLoader : MonoBehaviour
         
     }
 
-    void Awake()
+    public void OnClickSelect()
     {
-        SceneManager.LoadScene("Stage" + currentStage, LoadSceneMode.Additive);
+        SceneLoader.SetCurrentStage(StageNumber);
+        SceneManager.LoadScene("UIScene");
+
     }
 }

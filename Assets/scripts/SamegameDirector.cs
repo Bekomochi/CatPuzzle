@@ -9,7 +9,7 @@ public class SamegameDirector : MonoBehaviour
 {
     //変数の設定
     [SerializeField] List<GameObject> prefubCats; //ネコのプレハブ
-    [SerializeField] public static float gameTimer=5f; //タイマー
+    [SerializeField] public static float gameTimer; //タイマー
     [SerializeField] int fielditemCountMax;//フィールドに表示されるアイテム(Cat)の総数
     [SerializeField] int deleteItemCount;//削除できるアイテム(Cat)の数
 
@@ -29,6 +29,8 @@ public class SamegameDirector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameTimer = 5f;
+
         /*全アイテム
          アイテムのプレハブが生成されるたびにリストに追加*/
         cats = new List<GameObject>();
@@ -134,6 +136,28 @@ public class SamegameDirector : MonoBehaviour
             }
         }
     }
+
+    //private void TextColorChange()
+    //{
+    //    GameObject hitCat = GetHitCat(false);
+    //    hitCat.GetComponent<SpriteRenderer>();
+
+    //    hitCat.DOColor(ChangeColor(), 0.5f).OnComplete(TextColorChange);
+    //}
+    //private Color ChangeColor()
+    //{
+    //    Color nowColor = hitCat.color;
+    //    if (nowColor == Color.white)
+    //        return Color.red;
+    //    else if (nowColor == Color.red)
+    //        return Color.blue;
+    //    else if (nowColor == Color.blue)
+    //        return Color.green;
+    //    else if (nowColor == Color.green)
+    //        return Color.yellow;
+    //    else
+    //        return Color.white;
+    //}
 
     //アイテムを生成する関数
     void SpawnItem(int count)

@@ -8,7 +8,6 @@ using DG.Tweening;
 public class UIDirector : MonoBehaviour
 {
     //変数の設定
-    float gameTimer; //タイマー
 
     //UIに関する変数
     [SerializeField] public TextMeshProUGUI scoreText;//スコア
@@ -17,7 +16,6 @@ public class UIDirector : MonoBehaviour
     [SerializeField] GameObject retryButton;//ゲーム終了時に出すボタン
 
     //ゲーム内で使用するものの変数
-    int gameScore;//スコアの変数
 
     // Start is called before the first frame update
     void Start()
@@ -30,16 +28,13 @@ public class UIDirector : MonoBehaviour
     void Update()
     {
         //タイマーを更新
-        gameTimer -= Time.deltaTime;
-        this.gameTimer = SamegameDirector.gameTimer;
-        timerText.text = "" + (int)gameTimer;
+        timerText.text = "" + (int)SamegameDirector.gameTimer;
 
         //スコアの表示を更新
-        this.gameScore = SamegameDirector.gameScore;
-        scoreText.text = "" + gameScore;
+        scoreText.text = "" + SamegameDirector.gameScore;
 
         //ゲーム終了
-        if (0 > gameTimer)
+        if (0 > SamegameDirector.gameTimer)
         {
             //リザルト画面を表示
             finishPanel.SetActive(true);
@@ -49,6 +44,6 @@ public class UIDirector : MonoBehaviour
     //リトライボタンを押されたら
     public void OnClicRetry()
     {
-        SceneManager.LoadScene("Stage1");
+        SceneManager.LoadScene("UIScene");
     }
 }
