@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SejectStage : MonoBehaviour
+public class SelectStage : MonoBehaviour
 {
     [SerializeField] int StageNumber;
 

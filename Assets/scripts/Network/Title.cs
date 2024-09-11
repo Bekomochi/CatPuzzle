@@ -3,22 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using DG.Tweening;
+
 
 public class Title : MonoBehaviour
 {
     [SerializeField] GameObject StartButton;//タイトル画面に出すボタン
+    [SerializeField] AudioClip BGM;//BGM
+    [SerializeField] AudioClip SEclick;
+    AudioSource audioSource;//サウンド再生用
+    
 
-
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-
-    //}
+    // Start is called before the first frame update
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+
+        if (Input.GetMouseButtonDown(0))
         {
             bool isLoaded = NetworkManager.Instance.LoadUserData();
 
@@ -44,8 +51,25 @@ public class Title : MonoBehaviour
         }
     }
 
+    //public void VolumeChange()
+    //{
+    //    StartCoroutine("VolumeDown");
+    //}
+
+    //IEnumerator VolumeDown()
+    //{
+    //    while (audioSource.volume > 0)
+    //    {
+    //        audioSource.volume -= 0.01f;
+    //        yield return new WaitForSeconds(0.1f);
+    //    }
+    //}
+
     void OnClicRetry()
     {
-        SceneManager.LoadScene("Stage1");
+        var sequence = DOTween.Sequence();
+
+        SceneManager.LoadScene("SelectStage");//マップ選択画面に遷移
+        audioSource.PlayOneShot(SEclick);//クリックSE再生
     }
 }

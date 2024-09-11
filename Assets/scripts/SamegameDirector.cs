@@ -14,13 +14,15 @@ public class SamegameDirector : MonoBehaviour
     [SerializeField] int deleteItemCount;//削除できるアイテム(Cat)の数
 
     //bgm,seに関する変数
-    [SerializeField] AudioClip BublesSE;//ネコを消した時の音
     [SerializeField] AudioClip BGM;//BGM
+    [SerializeField] AudioClip CatsSE;//ネコを消した時の音
+    [SerializeField] AudioClip FinishSE;//ネコを消した時の音
 
     //ゲーム内で使用するものの変数
     List<GameObject> cats;//アイテム(Cat)のリスト
     public static int gameScore;//スコアの変数
     AudioSource audioSource;//サウンド再生用
+    const int Select_MAX = 12;//選択中のピースの色
 
     //ライン
     List<GameObject> lineCats;
@@ -29,7 +31,8 @@ public class SamegameDirector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameTimer = 5f;
+        gameTimer = 60f;
+        gameScore = 0;
 
         /*全アイテム
          アイテムのプレハブが生成されるたびにリストに追加*/
@@ -43,6 +46,8 @@ public class SamegameDirector : MonoBehaviour
 
         //連結したアイテム上のライン
         lineRenderer = GetComponent<LineRenderer>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -54,6 +59,9 @@ public class SamegameDirector : MonoBehaviour
         //ゲーム終了
         if (0 > gameTimer)
         {
+            //終了SEを鳴らす
+            audioSource.PlayOneShot(FinishSE);//終了SE再生
+
             //Update関数に入らないようにする
             enabled = false;
 
@@ -73,7 +81,7 @@ public class SamegameDirector : MonoBehaviour
             if (hitCat)
             {
                 lineCats.Add(hitCat);
-                hitCat.GetComponent<SpriteRenderer>().DOColor(new Color(1f, 0, 0), 0.5f).SetLoops(-1, LoopType.Yoyo);
+                hitCat.GetComponent<SpriteRenderer>().DOColor(new Color(1, 0, 1), 0.5f).SetLoops(-1, LoopType.Yoyo);
 
                 hitCat.transform.localScale = new Vector3(2, 2, 2);
             }
@@ -102,7 +110,7 @@ public class SamegameDirector : MonoBehaviour
                 //色が同じ&&リストに追加していない
                 if (isSameColor && !lineCats.Contains(hitCat))
                 {
-                    hitCat.GetComponent<SpriteRenderer>().DOColor(new Color(1f, 0, 0), 0.3f).SetLoops(-1, LoopType.Yoyo);
+                    hitCat.GetComponent<SpriteRenderer>().DOColor(new Color(1, 0, 1), 0.5f).SetLoops(-1, LoopType.Yoyo);
 
                     //ラインに追加
                     lineCats.Add(hitCat);
@@ -136,28 +144,6 @@ public class SamegameDirector : MonoBehaviour
             }
         }
     }
-
-    //private void TextColorChange()
-    //{
-    //    GameObject hitCat = GetHitCat(false);
-    //    hitCat.GetComponent<SpriteRenderer>();
-
-    //    hitCat.DOColor(ChangeColor(), 0.5f).OnComplete(TextColorChange);
-    //}
-    //private Color ChangeColor()
-    //{
-    //    Color nowColor = hitCat.color;
-    //    if (nowColor == Color.white)
-    //        return Color.red;
-    //    else if (nowColor == Color.red)
-    //        return Color.blue;
-    //    else if (nowColor == Color.blue)
-    //        return Color.green;
-    //    else if (nowColor == Color.green)
-    //        return Color.yellow;
-    //    else
-    //        return Color.white;
-    //}
 
     //アイテムを生成する関数
     void SpawnItem(int count)
@@ -313,4 +299,5 @@ public class SamegameDirector : MonoBehaviour
 
         return ret;
     }
+
 }

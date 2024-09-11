@@ -7,15 +7,14 @@ using DG.Tweening;
 
 public class UIDirector : MonoBehaviour
 {
-    //変数の設定
-
     //UIに関する変数
     [SerializeField] public TextMeshProUGUI scoreText;//スコア
     [SerializeField] public TextMeshProUGUI timerText;//ゲーム時間
     [SerializeField] public GameObject finishPanel;//ゲーム終了時に出すパネル
     [SerializeField] GameObject retryButton;//ゲーム終了時に出すボタン
+    [SerializeField] GameObject backButton;//マップ選択画面に戻るボタン
 
-    //ゲーム内で使用するものの変数
+    //public Result result;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +37,8 @@ public class UIDirector : MonoBehaviour
         {
             //リザルト画面を表示
             finishPanel.SetActive(true);
+
+            //result.ResultJudgment();
         }
     }
 
@@ -45,5 +46,11 @@ public class UIDirector : MonoBehaviour
     public void OnClicRetry()
     {
         SceneManager.LoadScene("UIScene");
+    }
+
+    //リトライボタンを押されたら
+    public void OnClicBack()
+    {
+        SceneManager.LoadScene("SelectStage");
     }
 }
