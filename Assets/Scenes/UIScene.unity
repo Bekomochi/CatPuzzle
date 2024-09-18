@@ -1032,6 +1032,10 @@ PrefabInstance:
       propertyPath: refCamera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3659525644914679042, guid: e931e56de6f58734591f87e592d729f2, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5502091646070863690, guid: e931e56de6f58734591f87e592d729f2, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1042,6 +1046,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7915686547078726353, guid: e931e56de6f58734591f87e592d729f2, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8724028535916348994, guid: e931e56de6f58734591f87e592d729f2, type: 3}
+      propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1322,7 +1330,7 @@ GameObject:
   - component: {fileID: 2008942499}
   - component: {fileID: 2008942498}
   m_Layer: 5
-  m_Name: RetryButton (1)
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

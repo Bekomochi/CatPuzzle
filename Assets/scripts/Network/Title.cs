@@ -29,47 +29,32 @@ public class Title : MonoBehaviour
         {
             bool isLoaded = NetworkManager.Instance.LoadUserData();
 
-            //if(!isLoaded)
-            //{
-            //    /*ユーザーデータが保存されていない場合は登録する
-            //      [Guid]は、128bitの重複しないランダムな値。
-            //    　もし名前を入力させるなら、UIから取得する。*/
-            //    StartCoroutine(NetworkManager.Instance.RegistUser(Guid.NewGuid().ToString(),result=>{
-            //        //登録終了後、次の画面に遷移
-            //        SceneManager.LoadScene("Samegame");
+            if (!isLoaded)
+            {
+                /*ユーザーデータが保存されていない場合は登録する
+                  [Guid]は、128bitの重複しないランダムな値。
+                　もし名前を入力させるなら、UIから取得する。*/
+                StartCoroutine(NetworkManager.Instance.RegistUser(Guid.NewGuid().ToString(), result =>
+                {
+                    //登録終了後、次の画面に遷移
+                    SceneManager.LoadScene("SelectStage");
+                }));
+            }
+            else
+            {
+                //ユーザーデータが保存されている場合は、何もせずに次の画面に遷移
+                SceneManager.LoadScene("SelectStage");
 
-            //    }));
-            //}
-            //else
-            //{
-            //    //ユーザーデータが保存されている場合は、何もせずに次の画面に遷移
-            //    SceneManager.LoadScene("Samegame");
+            }
 
-            //}
-
-            OnClicRetry();
+            //OnClicRetry();
         }
     }
-
-    //public void VolumeChange()
-    //{
-    //    StartCoroutine("VolumeDown");
-    //}
-
-    //IEnumerator VolumeDown()
-    //{
-    //    while (audioSource.volume > 0)
-    //    {
-    //        audioSource.volume -= 0.01f;
-    //        yield return new WaitForSeconds(0.1f);
-    //    }
-    //}
 
     void OnClicRetry()
     {
         var sequence = DOTween.Sequence();
 
         SceneManager.LoadScene("SelectStage");//マップ選択画面に遷移
-        audioSource.PlayOneShot(SEclick);//クリックSE再生
     }
 }

@@ -278,6 +278,7 @@ MonoBehaviour:
   - {fileID: 5420273148346927860, guid: 29b6c0f4e7dd1934a8f48e33b98c3c07, type: 3}
   - {fileID: 5420273148346927860, guid: fbf9d4adea8f98247a201015e913c343, type: 3}
   - {fileID: 5420273148346927860, guid: a5c23e8f345dbf34bb0abfc8817152b6, type: 3}
+  - {fileID: 5420273148346927860, guid: 071042662ad0b5b41856210a8865d7b0, type: 3}
   fielditemCountMax: 60
   deleteItemCount: 3
   BGM: {fileID: 8300000, guid: 328d7458739585e43a794f32d368bb56, type: 3}
@@ -683,9 +684,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.0045871437
+    x: 0.0045871735
     y: 0
-    width: 0.9908257
+    width: 0.99082565
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
