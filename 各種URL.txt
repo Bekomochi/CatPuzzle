@@ -1,0 +1,5 @@
+VMSSのリンク
+vnet-puzzle/default
+
+コンテナアプリのURL
+vnet-puzzle/default

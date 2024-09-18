@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    static int currentStage = 1;
+    static int currentStage;
 
     public static void SetCurrentStage(int stage)
     {
@@ -13,16 +13,16 @@ public class SceneLoader : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
+    //void Start()
+    //{
         
-    }
+    //}
 
-    // Update is called once per frame
-    void Update()
-    {
+    //// Update is called once per frame
+    //void Update()
+    //{
         
-    }
+    //}
 
     void Awake()
     {

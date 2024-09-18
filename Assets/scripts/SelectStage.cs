@@ -19,10 +19,35 @@ public class SelectStage : MonoBehaviour
         
     }
 
+    //ステージを選択したらシーンを読みこむ
     public void OnClickSelect()
     {
         SceneLoader.SetCurrentStage(StageNumber);
-        SceneManager.LoadScene("UIScene");
 
+        if (StageNumber == 1)
+        {
+            SceneManager.LoadScene("UIScene");
+        }
+        if (StageNumber == 2)
+        {
+            SceneManager.LoadScene("UIScene");
+        }
+        if (StageNumber == 3)
+        {
+            SceneManager.LoadScene("UIScene");
+        }
+        if (StageNumber == 4)
+        {
+            SceneManager.LoadScene("UIScene");
+        }
+        if (StageNumber == 5)
+        {
+            SceneManager.LoadScene("UIScene");
+        }
+        if (StageNumber == 6)
+        {
+            SceneManager.LoadScene("UIScene");
+        }
+        //SceneManager.LoadScene("UIScene");
     }
 }
