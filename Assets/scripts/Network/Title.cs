@@ -11,7 +11,6 @@ public class Title : MonoBehaviour
 {
     [SerializeField] GameObject StartButton;//タイトル画面に出すボタン
     [SerializeField] AudioClip BGM;//BGM
-    [SerializeField] AudioClip SEclick;
     AudioSource audioSource;//サウンド再生用
     
 
@@ -27,31 +26,31 @@ public class Title : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            bool isLoaded = NetworkManager.Instance.LoadUserData();
+            //bool isLoaded = NetworkManager.Instance.LoadUserData();
 
-            if (!isLoaded)
-            {
-                /*ユーザーデータが保存されていない場合は登録する
-                  [Guid]は、128bitの重複しないランダムな値。
-                　もし名前を入力させるなら、UIから取得する。*/
-                StartCoroutine(NetworkManager.Instance.RegistUser(Guid.NewGuid().ToString(), result =>
-                {
-                    //登録終了後、次の画面に遷移
-                    SceneManager.LoadScene("SelectStage");
-                }));
-            }
-            else
-            {
-                //ユーザーデータが保存されている場合は、何もせずに次の画面に遷移
-                SceneManager.LoadScene("SelectStage");
+            //if (!isLoaded)
+            //{
+            //    /*ユーザーデータが保存されていない場合は登録する
+            //      [Guid]は、128bitの重複しないランダムな値。
+            //    　もし名前を入力させるなら、UIから取得する。*/
+            //    StartCoroutine(NetworkManager.Instance.RegistUser(Guid.NewGuid().ToString(), result =>
+            //    {
+            //        //登録終了後、次の画面に遷移
+            //        SceneManager.LoadScene("SelectStage");
+            //    }));
+            //}
+            //else
+            //{
+            //    //ユーザーデータが保存されている場合は、何もせずに次の画面に遷移
+            //    SceneManager.LoadScene("SelectStage");
 
-            }
+            //}
 
-            //OnClicRetry();
+            //OnClicStart();
         }
     }
 
-    void OnClicRetry()
+     public void OnClicStart()
     {
         var sequence = DOTween.Sequence();
 

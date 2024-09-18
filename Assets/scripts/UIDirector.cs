@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class UIDirector : MonoBehaviour
 {
     //UIに関する変数
-    [SerializeField] public TextMeshProUGUI scoreText;//スコア
-    [SerializeField] public TextMeshProUGUI timerText;//ゲーム時間
+    [SerializeField] public Text scoreText;//スコア
+    [SerializeField] public Text timerText;//ゲーム時間
     [SerializeField] public GameObject finishPanel;//ゲーム終了時に出すパネル
     [SerializeField] GameObject retryButton;//ゲーム終了時に出すボタン
     [SerializeField] GameObject backButton;//マップ選択画面に戻るボタン

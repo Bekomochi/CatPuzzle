@@ -130,19 +130,6 @@ public class SamegameDirector : MonoBehaviour
             lineRenderer.positionCount = 0;
             lineCats.Clear();
         }
-
-        //ライン描画処理
-        //if (lineCats.Count > 1)
-        //{
-        //    //頂点数
-        //    lineRenderer.positionCount = lineCats.Count;
-
-        //    //ラインのポジション
-        //    for (int i = 0; i < lineCats.Count; i++)
-        //    {
-        //        lineRenderer.SetPosition(i, lineCats[i].transform.position + new Vector3(0, 0, 1));
-        //    }
-        //}
     }
 
     //アイテムを生成する関数
