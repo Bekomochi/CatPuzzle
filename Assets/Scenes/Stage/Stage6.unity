@@ -284,8 +284,10 @@ MonoBehaviour:
   fielditemCountMax: 60
   deleteItemCount: 3
   BGM: {fileID: 8300000, guid: 328d7458739585e43a794f32d368bb56, type: 3}
-  CatsSE: {fileID: 8300000, guid: 8059177b254b8734482763c98acaf07f, type: 3}
+  CatsDeleteSE: {fileID: 8300000, guid: 8059177b254b8734482763c98acaf07f, type: 3}
+  CatsTapSE: {fileID: 8300000, guid: f8d70d33b8b4296498a866a2352d8ced, type: 3}
   FinishSE: {fileID: 8300000, guid: 61c38f4887b7c9748b0616d56498e2cc, type: 3}
+  volumeSliderValue: 0
 --- !u!82 &186435254
 AudioSource:
   m_ObjectHideFlags: 0

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+//using TMPro;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 
@@ -15,8 +15,9 @@ public class SamegameDirector : MonoBehaviour
 
     //bgm,seに関する変数
     [SerializeField] AudioClip BGM;//BGM
-    [SerializeField] AudioClip CatsSE;//ネコを消した時の音
-    [SerializeField] AudioClip FinishSE;//ネコを消した時の音
+    [SerializeField] AudioClip CatsDeleteSE;//ネコを消した時の音
+    [SerializeField] AudioClip CatsTapSE;//ネコをタップした時の音
+    [SerializeField] AudioClip FinishSE;//ゲーム終了時の音
 
     //ゲーム内で使用するものの変数
     List<GameObject> cats;//アイテム(Cat)のリスト
@@ -31,8 +32,9 @@ public class SamegameDirector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameTimer = 60f;
-        gameScore = 0;
+        //値の初期化
+        gameTimer = 60f;//ゲーム時間の初期化
+        gameScore = 0;//スコアの初期化
 
         /*全アイテム
          アイテムのプレハブが生成されるたびにリストに追加*/
@@ -47,6 +49,7 @@ public class SamegameDirector : MonoBehaviour
         //連結したアイテム上のライン
         lineRenderer = GetComponent<LineRenderer>();
 
+        //BGMを再生
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -84,7 +87,10 @@ public class SamegameDirector : MonoBehaviour
                 hitCat.GetComponent<SpriteRenderer>().DOColor(new Color(1, 0, 1), 0.5f).SetLoops(-1, LoopType.Yoyo);
 
                 hitCat.transform.localScale = new Vector3(2, 2, 2);
+                audioSource.PlayOneShot(CatsTapSE);
+
             }
+
         }
 
         else if (Input.GetMouseButton(0))//押したままの状態
@@ -171,16 +177,11 @@ public class SamegameDirector : MonoBehaviour
 
             //削除する
             Destroy(item);
-
-            //爆発エフェクト生成
-            //CatPoof =Instantiate(GetComponent<GameObject>());
+            audioSource.PlayOneShot(CatsDeleteSE);
 
             //削除した分生成して、スコアを加算
             SpawnItem(destroyItems.Count / 4);
             gameScore += destroyItems.Count * 10;
-
-            //////スコアの表示を更新
-            //scoreText.text = "" + gameScore;
         }
     }
 

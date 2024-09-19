@@ -272,8 +272,8 @@ MonoBehaviour:
   scoreText: {fileID: 708815461}
   timerText: {fileID: 1904725602}
   finishPanel: {fileID: 1166840205}
-  retryButton: {fileID: 0}
-  backButton: {fileID: 0}
+  retryButton: {fileID: 7557481551395434085}
+  backButton: {fileID: 2083855281}
 --- !u!1 &76971026
 GameObject:
   m_ObjectHideFlags: 0
