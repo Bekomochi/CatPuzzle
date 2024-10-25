@@ -285,7 +285,6 @@ MonoBehaviour:
   CatsDeleteSE: {fileID: 8300000, guid: 8059177b254b8734482763c98acaf07f, type: 3}
   CatsTapSE: {fileID: 8300000, guid: f8d70d33b8b4296498a866a2352d8ced, type: 3}
   FinishSE: {fileID: 8300000, guid: 61c38f4887b7c9748b0616d56498e2cc, type: 3}
-  volumeSliderValue: 0.5
 --- !u!82 &186435254
 AudioSource:
   m_ObjectHideFlags: 0
@@ -782,9 +781,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.0045871735
+    x: 0.0946413
     y: 0
-    width: 0.99082565
+    width: 0.8107174
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -1496,7 +1495,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
