@@ -14,6 +14,7 @@ public class SelectStage : MonoBehaviour
     //モードのボタン
     [SerializeField] Button RankingButton;//ランキングを表示するボタン
     [SerializeField] Button PlayButton;//ゲームをスタートするボタン
+    [SerializeField] Button BackButton;//パネルを閉じるボタン
 
     // Start is called before the first frame update
     void Start()
@@ -47,5 +48,10 @@ public class SelectStage : MonoBehaviour
     public void OnClickRanking()
     {
         SceneManager.LoadScene("Ranking_stage" + StageNumber);
+    }
+
+    public void OnclickBack()
+    {
+        SelectModePannel.SetActive(false);
     }
 }
