@@ -25,7 +25,7 @@ public class SceneLoader : MonoBehaviour
     //}
 
     void Awake()
-    {
+    {;
         SceneManager.LoadScene("Stage" + currentStage, LoadSceneMode.Additive);
     }
 }

@@ -9,7 +9,7 @@ using DG.Tweening;
 
 public class Title : MonoBehaviour
 {
-    [SerializeField] GameObject StartButton;//タイトル画面に出すボタン
+    [SerializeField] GameObject LoginButton;//タイトル画面に出すボタン
     [SerializeField] AudioClip BGM;//BGM
     AudioSource audioSource;//サウンド再生用
     
@@ -50,7 +50,7 @@ public class Title : MonoBehaviour
         }
     }
 
-     public void OnClicStart()
+     public void OnClicLogin()
     {
         var sequence = DOTween.Sequence();
 

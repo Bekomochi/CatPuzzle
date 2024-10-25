@@ -2,15 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SelectStage : MonoBehaviour
 {
     [SerializeField] int StageNumber;
 
+    //ステージを選択した時に出すパネル
+    [SerializeField] GameObject SelectModePannel;
+
+    //モードのボタン
+    [SerializeField] Button RankingButton;//ランキングを表示するボタン
+    [SerializeField] Button PlayButton;//ゲームをスタートするボタン
+
     // Start is called before the first frame update
     void Start()
     {
-
+        SelectModePannel.SetActive(false);
+        RankingButton = GetComponent<Button>();
+        PlayButton = GetComponent<Button>();
     }
 
     // Update is called once per frame
@@ -26,7 +36,7 @@ public class SelectStage : MonoBehaviour
 
         if (StageNumber == 1)
         {
-            SceneManager.LoadScene("UIScene");
+            SelectModePannel.SetActive(true);
         }
         if (StageNumber == 2)
         {
@@ -49,4 +59,14 @@ public class SelectStage : MonoBehaviour
             SceneManager.LoadScene("UIScene");
         }
     }
+
+    public void OnClickPlay()
+    {
+        SceneManager.LoadScene("UIScene");
+    }
+
+    //public void OnClickRanking()
+    //{
+    //    SceneManager.LoadScene("Ranking_stage" + StageNumber);
+    //}
 }

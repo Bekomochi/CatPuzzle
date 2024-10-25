@@ -14,8 +14,6 @@ public class UIDirector : MonoBehaviour
     [SerializeField] GameObject retryButton;//ゲーム終了時に出すボタン
     [SerializeField] GameObject backButton;//マップ選択画面に戻るボタン
 
-    //public Result result;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +35,6 @@ public class UIDirector : MonoBehaviour
         {
             //リザルト画面を表示
             finishPanel.SetActive(true);
-
-            //result.ResultJudgment();
         }
     }
 
