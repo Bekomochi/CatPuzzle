@@ -30,34 +30,13 @@ public class SelectStage : MonoBehaviour
     }
 
     //ステージを選択したらシーンを読みこむ
-    public void OnClickSelect()
+    public void OnClickSelect(int stageNum)
     {
-        SceneLoader.SetCurrentStage(StageNumber);
+        SceneLoader.SetCurrentStage(stageNum);
+        StageNumber = stageNum;
 
-        if (StageNumber == 1)
-        {
-            SelectModePannel.SetActive(true);
-        }
-        if (StageNumber == 2)
-        {
-            SceneManager.LoadScene("UIScene");
-        }
-        if (StageNumber == 3)
-        {
-            SceneManager.LoadScene("UIScene");
-        }
-        if (StageNumber == 4)
-        {
-            SceneManager.LoadScene("UIScene");
-        }
-        if (StageNumber == 5)
-        {
-            SceneManager.LoadScene("UIScene");
-        }
-        if (StageNumber == 6)
-        {
-            SceneManager.LoadScene("UIScene");
-        }
+        SelectModePannel.SetActive(true);
+
     }
 
     public void OnClickPlay()
@@ -65,8 +44,8 @@ public class SelectStage : MonoBehaviour
         SceneManager.LoadScene("UIScene");
     }
 
-    //public void OnClickRanking()
-    //{
-    //    SceneManager.LoadScene("Ranking_stage" + StageNumber);
-    //}
+    public void OnClickRanking()
+    {
+        SceneManager.LoadScene("Ranking_stage" + StageNumber);
+    }
 }
